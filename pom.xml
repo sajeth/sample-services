@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.services</groupId>
+	<artifactId>sample-services</artifactId>
+	<version>1.0.0</version>
+	<packaging>jar</packaging>
+	<name>sample-services</name>
+	<properties>
+		<start-class>com.App</start-class>
+	</properties>
+	<parent>
+		<groupId>com.parent.rest</groupId>
+		<artifactId>microservice-parent</artifactId>
+		<version>1.0.0</version>
+	</parent>
+	<dependencies/>
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<directory>${buildDirectory}</directory>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring.boot.version}</version>
+				<configuration>
+					<mainClass>${start-class}</mainClass>
+					<excludes>
+						<exclude>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-compiler-plugin</artifactId>
+						</exclude>
+						<exclude>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-resources-plugin</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
